@@ -9,12 +9,12 @@ const byte DNS_PORT = 53;
 //IPAddress apIP(172, 217, 28, 1);
 IPAddress apIP(192, 168, 4, 1);
 DNSServer dnsServer;
-#define HOST "lobate-complements.000webhostapp.com"
-//#define HOST "mywifiattendance.rf.gd"
+#define HOST "enter your website name" // where the student deteils will be uploaded
+
 
 String postData;
-String Course_id = "AIE 588";
-String Room_id = "VT 01";
+String Course_id = "AIE 588";// Enter the course ID
+String Room_id = "VT 01";// room number
 const char MAIN_page[] PROGMEM = R"=====(
 <!DOCTYPE html>
 <html>
@@ -277,12 +277,10 @@ boolean upload_data(String stdno, String course_id, String room_id){
 
   }
 // Set WiFi credentials
-//#define WIFI_SSID "BIGMOO"
-//#define WIFI_SSID "NEU STUDENT"
-//#define WIFI_PASS "M0795603341"
 
-#define WIFI_SSID "GLORYYY"
-#define WIFI_PASS "Glory1234$"
+
+#define WIFI_SSID " "
+#define WIFI_PASS " "
 
 // Set AP credentials
 #define AP_SSID "AIE 588"
