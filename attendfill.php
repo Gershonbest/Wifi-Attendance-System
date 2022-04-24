@@ -145,55 +145,44 @@ if(!isset($_SESSION['loggedin_a'])){
 
               <?php
           if(isset($_POST['submit'])){
-    //       $stdno = $_POST['stdno'];
-          
-
-    //     $check=mysqli_query($conn, "SELECT * FROM students WHERE stdno='$stdno' ");
-    //     $checkrows=mysqli_num_rows($check);
-    //     if($checkrows>0){
-    //     echo "<script> alert('Student number already exists')
-    //     location.href='student.php'</script>";	
-    //     }
-    //     else{
 
         $sql="INSERT INTO attendance_sheet (stdno, course_id, room_id, Time, Date, Time_Out) VALUES('$_POST[stdno]', '$_POST[course_id]', '$_POST[room_id]', '$_POST[Time]', '$_POST[Date]', '$_POST[Time_Out]' )";
         mysqli_query($conn,$sql) or die (mysqli_error($conn));
         $num=mysqli_insert_id($conn);
         if(mysqli_affected_rows($conn)!=1){
-            $message="error inserting into DB";
-    
+            $message="Attendance Submittion failed! please try again.";
     }
 
-    echo "<script>alert('Attendance Submitted ')</script>";
+    echo "<script>alert('Attendance Submitted Successfully! ')</script>";
 }
       ?>
-<form method="post">
+<form action = "" method="post">
   <div class="form-floating">
-    <input type="number" class="form-control" placeholder="Eg. 20201234" required="required" name="stdno">
+    <input type="number" class="form-control" placeholder="Eg. 20201234" required type="number" name="stdno">
     <label for="floatingInput">Student Number</label> 
   </div>
 
 <div class="form-floating">
-<input type="text" class="form-control" placeholder="Eg. PHYS 101" required="required" name="course_id">
+<input type="text" class="form-control" placeholder="Eg. PHYS 101" required type="text" name="course_id">
   <label for="floatingInput">Course ID</label>
 </div>
 
 <div class="form-floating">
-<input type="text" class="form-control" placeholder="Eg. VT-001" required="required" name="room_id">
+<input type="text" class="form-control" placeholder="Eg. VT-001" required type="text" name="room_id">
   <label for="floatingInput">Room Number</label>
 </div>
                 
 <div class="form-floating">
-<input type="time" class="form-control" required="required" name="Time">
+<input type="time" class="form-control" required type="time" name="Time">
   <label for="floatingInput">Time In</label>
 </div>
   
 <div class="form-floating">
-<input type="time" class="form-control"required="required" name="Time_Out">
+<input type="time" class="form-control"required type="time" name="Time_Out">
   <label for="floatingInput">Time Out</label>
 </div>
 <div class="form-floating">
-<input type="date" class="form-control" placeholder="Eg. PHYS 101" required="required" name="Date">
+<input type="date" class="form-control" required type="date" name="Date">
   <label for="floatingInput">Date</label>
 </div>
 </form>
